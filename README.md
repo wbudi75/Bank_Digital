@@ -60,5 +60,19 @@ Lab ini telah diuji dan berjalan lancar pada:
 ### Catatan Khusus VirtualBox:
 Gunakan **Bridged Adapter** agar IP mesin lab dapat diakses oleh mesin penyerang (Host).
 
+1. Tampilan Bank Digital
+
+![Tampilan Bank Digital](images/index_php.png)
+
+2. Tampilan Web Tipuan
+
+![Tampilan Tipuan](images/index_html.png)
+
+3. Tampilan Recon Server
+
+![Tampilan Recon](images/nmap.png)
+
+
+
 **Author:** Budi
 **License:** MIT
