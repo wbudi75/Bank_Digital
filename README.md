@@ -33,10 +33,11 @@ Bagian ini menjelaskan bagaimana memperbaiki celah yang ditemukan:
 - **LFI:**   Menerapkan *Allow-list* (Whitelisting) pada file yang boleh di-include.
 - **IDOR:**  Validasi `session_id` agar user hanya bisa mengakses data miliknya sendiri.
 
-### 2. System Hardening
+### 2. System Hardening 
 - **SSH:**   Mematikan `PermitRootLogin`, membatasi `MaxAuthTries`, dan menggunakan `AllowUsers`.
 - **FTP:**   Menonaktifkan `anonymous_enable` di `vsftpd.conf`.
 - **Samba:** Menghapus `map to guest` dan mewajibkan autentikasi user.
+- **File:** file dengan extensi hardened adalah file config untuk hardening sistem nya, kecuali untuk SQLi, IDOR, JS, CSS, harus edit manual.
 
 ---
 
@@ -44,9 +45,9 @@ Bagian ini menjelaskan bagaimana memperbaiki celah yang ditemukan:
 1. git clone https://github.com/wbudi75/Bank_Digital.git
 2. cd Bank_Digital
 3. chmod +x install.sh
-   sudo ./install.sh
-4. chmod +x ./setup/set_flags.sh
-   sudo ./setup/set_flags.sh
+4. sudo ./install.sh
+5. chmod +x ./setup/set_flags.sh
+6. sudo ./setup/set_flags.sh
 5. Pastikan semua service (Apache, MariaDB, SSH, FTP, Samba) berjalan.
 
 ## Lingkungan Kerja (Compatibility)
