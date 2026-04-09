@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #003366;">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.php">BNK <span class="text-warning">Digital</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -28,25 +28,32 @@
 
     <?php
     // --- CELAH LFI (Local File Inclusion) ---
+    // Pastikan peserta mencoba: ?page=../flag_lfi.txt
     if (isset($_GET['page'])) {
-        echo "<div class='container mt-5 bg-white p-5 shadow rounded'>";
         $file = $_GET['page'];
-        // Peserta harus sadar kalau ini bolong!
-        if (file_exists($file) || strpos($file, '..') !== false) {
+        echo "<div class='container mt-5 bg-white p-5 shadow rounded'>";
+        
+        // Logika rentan: include apapun yang diminta tanpa sanitasi ketat
+        if (file_exists($file)) {
             include($file);
         } else {
-            echo "<div class='alert alert-danger text-center'><h4>Error 404</h4>Halaman tidak ditemukan di server BNK.</div>";
+            // Tetap izinkan include jika mengandung traversal meskipun file_exists gagal (untuk beberapa environment)
+            if (strpos($file, '..') !== false) {
+                include($file);
+            } else {
+                echo "<div class='alert alert-danger text-center'><h4>Error 404</h4>Halaman <b>$file</b> tidak ditemukan.</div>";
+            }
         }
         echo "</div>";
     } else {
     ?>
-        <header class="hero-section text-center text-white">
-            <div class="container">
+        <header class="hero-section text-center text-white py-5" style="background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.8)), url('https://source.unsplash.com/random/1600x900/?bank'); background-size: cover;">
+            <div class="container py-5">
                 <h1 class="display-4 fw-bold">Keamanan Anda, Prioritas Kami.</h1>
-                <p class="lead">Solusi perbankan digital masa kini dengan sistem proteksi berlapis AI.</p>
+                <p class="lead">Solusi perbankan digital masa kini dengan sistem proteksi berlapis.</p>
                 <div class="mt-4">
                     <a href="login.php" class="btn btn-warning btn-lg px-5 fw-bold shadow">Login Member</a>
-                    <a href="#fitur" class="btn btn-outline-light btn-lg px-5 ms-2">Pelajari Lebih Lanjut</a>
+                    <a href="#fitur" class="btn btn-outline-light btn-lg px-5 ms-2">Pelajari Fitur</a>
                 </div>
             </div>
         </header>
@@ -54,19 +61,19 @@
         <div id="fitur" class="container mt-5">
             <div class="row text-center">
                 <div class="col-md-4 mb-4">
-                    <div class="card card-feature p-4">
+                    <div class="card p-4 shadow-sm border-0">
                         <h4 class="text-primary fw-bold">Transfer Instan</h4>
                         <p>Kirim dana ke mana saja tanpa batas waktu. Aman dan terenkripsi.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <div class="card card-feature p-4">
+                    <div class="card p-4 shadow-sm border-0">
                         <h4 class="text-primary fw-bold">E-Wallet</h4>
                         <p>Integrasi lancar dengan berbagai dompet digital favorit Anda.</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <div class="card card-feature p-4">
+                    <div class="card p-4 shadow-sm border-0">
                         <h4 class="text-primary fw-bold">Smart Security</h4>
                         <p>Dipantau 24/7 oleh sistem keamanan siber tingkat tinggi.</p>
                     </div>
@@ -75,9 +82,9 @@
         </div>
     <?php } ?>
 
-    <footer class="text-center text-white py-4 mt-5">
+    <footer class="text-center text-white py-4 mt-5" style="background-color: #002244;">
         <div class="container">
-            <p class="mb-0">&copy; 2026 Bank Nasional Kukuh. Terdaftar & Diawasi oleh Jaringan Keamanan CTF.</p>
+            <p class="mb-0">&copy; 2026 Bank Nasional Kukuh. Diawasi oleh Jaringan Keamanan CTF.</p>
             <small class="text-muted">Security Version: 1.0.4-stable</small>
         </div>
     </footer>
