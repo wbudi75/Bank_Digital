@@ -1,0 +1,33 @@
+# ----------------------------------------------------
+# HARDENED CONFIGURATION - BNK DIGITAL LAB
+# ----------------------------------------------------
+
+listen=NO
+listen_ipv6=YES
+
+# --- PERBAIKAN: MATIKAN ANONYMOUS ---
+# Hanya user terdaftar (seperti 'pisang') yang bisa masuk
+anonymous_enable=NO
+
+local_enable=YES
+write_enable=YES
+local_umask=022
+
+dirmessage_enable=YES
+use_localtime=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+
+# --- PERBAIKAN: CHROOT JAIL ---
+# Mengurung user di folder home-nya sendiri agar tidak bisa intip file sistem
+chroot_local_user=YES
+allow_writeable_chroot=YES
+
+secure_chroot_dir=/var/run/vsftpd/empty
+pam_service_name=vsftpd
+
+# --- TAMBAHAN KEAMANAN ---
+# Batasi login hanya untuk user yang diizinkan (opsional)
+# userlist_enable=YES
+# userlist_file=/etc/vsftpd.userlist
+# userlist_deny=NO

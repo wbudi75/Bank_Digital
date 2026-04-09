@@ -1,0 +1,24 @@
+# ----------------------------------------------------
+# VULNERABLE SSH CONFIG - BNK DIGITAL LAB
+# ----------------------------------------------------
+
+Port 22
+Protocol 2
+HostKey /etc/ssh/ssh_host_rsa_key
+
+# --- CELAH: IZINKAN ROOT LOGIN ---
+PermitRootLogin yes
+
+# --- CELAH: TIDAK ADA BATASAN LOGIN ---
+# Hacker bisa coba ribuan password tanpa diputus
+MaxAuthTries 100 
+
+PasswordAuthentication yes
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+UsePAM yes
+
+X11Forwarding yes
+PrintMotd no
+AcceptEnv LANG LC_*
+Subsystem sftp /usr/lib/openssh/sftp-server

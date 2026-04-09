@@ -1,0 +1,46 @@
+/* BNK DIGITAL ASSETS - MAIN STYLE
+   Version: 1.0
+   FLAG_BONUS_1: {{FLAG_CSS_COMMENT}}
+*/
+
+body { 
+    background-color: #f0f2f5; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.navbar { 
+    background-color: #003366 !important; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.hero-section { 
+    background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), 
+                url('https://images.unsplash.com/photo-1550565118-3a14e8d0386f?fit=crop&w=1350&q=80'); 
+    background-size: cover; 
+    background-position: center;
+    padding: 120px 0; 
+}
+
+.card-feature { 
+    border: none; 
+    border-radius: 15px;
+    transition: all 0.3s ease; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+}
+
+.card-feature:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+}
+
+footer { 
+    background-color: #001a33; 
+}
+
+/* Hidden Element for Pro-Inspectors */
+.secret-container {
+    display: none;
+    /* Hint: Decrypt string di bawah ini pakai ROT13 */
+    /* {{FLAG_CSS_ROT13}} */
+}

@@ -1,0 +1,30 @@
+# ----------------------------------------------------
+# HARDENED SMB CONFIG - BNK DIGITAL LAB
+# ----------------------------------------------------
+
+[global]
+   workgroup = WORKGROUP
+   security = user
+   
+   # --- PERBAIKAN: MATIKAN GUEST ---
+   map to guest = Never
+   
+   # Tambahan Keamanan: Batasi protokol lama (SMB1 yang rentan)
+   server min protocol = SMB2
+   
+   # Batasi akses hanya dari IP lokal (opsional tapi pro)
+   # hosts allow = 127. 10.28.222.
+   
+   dns proxy = no
+
+[public]
+   comment = Data Terproteksi
+   path = /srv/samba/public
+   browseable = yes
+   read only = yes
+   
+   # --- PERBAIKAN: WAJIB LOGIN ---
+   guest ok = no
+   
+   # Hanya user dalam grup atau user tertentu yang boleh akses
+   valid users = pisang

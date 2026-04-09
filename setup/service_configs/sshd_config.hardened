@@ -1,0 +1,24 @@
+# ----------------------------------------------------
+# HARDENED SSH CONFIG - BNK DIGITAL LAB
+# ----------------------------------------------------
+
+Port 22
+Protocol 2
+
+# --- PERBAIKAN: LARANG ROOT LOGIN ---
+PermitRootLogin no
+
+# --- PERBAIKAN: BATASI PERCOBAAN (ANTI-BRUTEFORCE) ---
+# Salah 3 kali? Langsung tendang!
+MaxAuthTries 3
+LoginGraceTime 30
+
+# --- PERBAIKAN: HANYA USER TERTENTU ---
+AllowUsers pisang
+
+PasswordAuthentication yes
+PermitEmptyPasswords no
+UsePAM yes
+
+# Tambahkan Banner Peringatan
+Banner /etc/issue.net
