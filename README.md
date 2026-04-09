@@ -48,7 +48,8 @@ Bagian ini menjelaskan bagaimana memperbaiki celah yang ditemukan:
 4. sudo ./install.sh
 5. chmod +x ./setup/set_flags.sh
 6. sudo ./setup/set_flags.sh
-5. Pastikan semua service (Apache, MariaDB, SSH, FTP, Samba) berjalan.
+7. Pastikan semua service (Apache, MariaDB, SSH, FTP, Samba) berjalan.
+8. Username: pisang, Password: rebus.
 
 ## Lingkungan Kerja (Compatibility)
 Lab ini telah diuji dan berjalan lancar pada:
