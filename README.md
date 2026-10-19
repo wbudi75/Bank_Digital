@@ -10,7 +10,7 @@ Sebuah bank digital baru saja meluncurkan layanannya. Namun, karena kurangnya pe
 **Tujuan Peserta:** Lakukan *Reconnaissance*, temukan kerentanan pada layanan jaringan, bobol aplikasi web bank, dan lakukan eskalasi hak akses (*Privilege Escalation*) untuk mendapatkan akses *Root*. Terdapat **5 Flag** tersembunyi yang harus ditemukan.
 
 ## Stack Teknologi & Environment
-- **OS Target:** Debian 13 / DietPi / Ubuntu Server
+- **OS Target:** DietPi Trixie
 - **Web Server:** Apache2, PHP 8.x
 - **Database:** MariaDB
 - **Layanan Lain:** OpenSSH, vsftpd, Samba
@@ -44,7 +44,7 @@ Untuk memulai simulasi *pentest* realistis, peserta dapat menggunakan kredensial
 ## Lingkungan Kerja (Compatibility)
 Lab ini sangat ringan dan dapat dijalankan di ekosistem berikut:
 * **Virtualisasi:** VirtualBox, LXD/Incus, Proxmox VE
-* **Spesifikasi Minimal:** 1 Core CPU, RAM 512MB - 1GB (Disarankan menggunakan OS DietPi/Debian 13/Ubuntu Server Minimal).
+* **Spesifikasi Minimal:** 1 Core CPU, RAM 1GB (Disarankan menggunakan OS DietPi / Debian 13 Netinstall / Ubuntu Server Minimal).
 * **Catatan Jaringan:** Jika menggunakan VirtualBox, atur Network ke **Bridged Adapter** atau **Host-Only Adapter** agar IP VM dapat dijangkau oleh mesin penyerang.
 
 ---
