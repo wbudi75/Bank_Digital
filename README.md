@@ -48,5 +48,5 @@ Lab ini sangat ringan dan dapat dijalankan di ekosistem berikut:
 * **Catatan Jaringan:** Jika menggunakan VirtualBox, atur Network ke **Bridged Adapter** atau **Host-Only Adapter** agar IP VM dapat dijangkau oleh mesin penyerang.
 
 ---
-**Author:** Kukuh  
+**Author:** OrchidLabs  
 **License:** MIT
